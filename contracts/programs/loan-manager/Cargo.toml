@@ -1,6 +1,7 @@
 [package]
 name = "loan-manager"
 version = "0.1.0"
+description = "PrivateLend loan manager"
 edition = "2021"
 
 [lib]
@@ -16,5 +17,14 @@ default = []
 [dependencies]
 anchor-lang = "0.30.1"
 anchor-spl = "0.30.1"
+solana-program = "1.18"
 
-thiserror = "2.0" 
+# For ZK proof signature verification (REAL CRATE)
+ed25519-dalek = "1.0.1"
+
+# For proof parsing (REAL CRATE)
+bs58 = "0.5"
+
+
+sha2 = "0.10"
+# NO FAKE CRATES - We'll implement encryption storage ourselves!

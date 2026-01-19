@@ -47,6 +47,23 @@ impl LendingPool {
     8 + // created_at
     1; // bump
 
+    pub fn calculate_apy(&self) -> u64 {
+        if self.total_deposits == 0 {
+            return 0;
+        }
+        (self.cumulative_interest * 10000) / self.total_deposits
+    }
+
+    /// Calculate pool utilization rate
+    /// Formula: (total_borrowed / total_deposits) * 100
+    /// Returns: Utilization as percentage (0-100)
+    pub fn calculate_utilization(&self) -> u64 {
+        if self.total_deposits == 0 {
+            return 0;
+        }
+        (self.total_borrowed * 100) / self.total_deposits
+    }
+    
 }
 
 #[account]
@@ -90,6 +107,13 @@ impl LenderAccount {
 
     pub fn total_balance(&self)->u64{
         self.available_amount + self.lent_amount
+    }
+
+    pub fn calculate_roi(&self) -> u64 {
+        if self.deposited_amount == 0 {
+            return 0;
+        }
+        (self.interest_earned * 100) / self.deposited_amount
     }
 }
 
