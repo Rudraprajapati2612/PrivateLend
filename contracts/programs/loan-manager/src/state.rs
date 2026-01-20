@@ -97,6 +97,7 @@ pub struct Loan {
 
     pub required_collateral_ratio : u16,
 
+    pub total_repaid : u64,
     pub bump : u8
 
 
@@ -114,7 +115,11 @@ pub enum LoanStatus {
 
     Disputed,
 
-    Liquidated
+    Liquidated,
+
+    Repaid,
+    Defaulted
+
 }
 
 impl Loan {
@@ -142,6 +147,7 @@ impl Loan {
     1 + // warning_sent
     2 + // credit_score
     2 + // required_collateral_ratio
+    8+
     1; // bump
 
 }

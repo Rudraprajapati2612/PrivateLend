@@ -86,8 +86,8 @@ pub fn get_required_collateral_ratio(credit_score:u16)->u16{
 
 
 pub fn verify_privacy_commitment(
-    commitment : [u8;32],
-    nullifier : [u8;32],
+    commitment : &[u8;32],
+    nullifier : &[u8;32],
     amount : u64
 )->Result<bool>{
 
