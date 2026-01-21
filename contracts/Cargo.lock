@@ -766,9 +766,9 @@ name = "credit-scorer"
 version = "0.1.0"
 dependencies = [
  "anchor-lang",
- "borsh 1.6.0",
  "bs58 0.5.1",
  "ed25519-dalek",
+ "sha2 0.10.9",
  "thiserror 2.0.17",
 ]
 

@@ -5,7 +5,7 @@ use crate::{constants::LIQUIDATION_THRESHOLD, errors::VaultError, events::Collat
 
 #[derive(Accounts)]
 
-pub struct LiquidatedCollateral<'info>{
+pub struct LiquidateCollateral<'info>{
 
     #[account(mut)]
     pub collateral_lock : Account<'info,CollateralLock>,
@@ -20,7 +20,7 @@ pub struct LiquidatedCollateral<'info>{
 }
 
 pub fn handler(
-    ctx : Context<LiquidatedCollateral>,
+    ctx : Context<LiquidateCollateral>,
     laon_id : u64
 )->Result<()>{
     let lock = &mut ctx.accounts.collateral_lock;
